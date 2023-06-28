@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background-color: teal;
+  border-radius: 50%;
+  transition: transform 6s ease;
+}
+
+.spin-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wheel"></div>
+        <button class="spin-btn">开始抽奖</button>
+      </div>
+    
+</body>
+<script>
+    const wheel = document.querySelector('.wheel');
+const spinBtn = document.querySelector('.spin-btn');
+let spinning = false;
+
+spinBtn.addEventListener('click', startSpin);
+
+function startSpin() {
+  if (spinning) return;
+  
+  const spinDegree = Math.floor(Math.random() * 360 + 360 * 5); // 随机旋转角度
+  wheel.style.transform = `rotate(${spinDegree}deg)`;
+  
+  spinning = true;
+  
+  setTimeout(() => {
+    spinning = false;
+    alert('恭喜你中奖了！');
+  }, 6000); // 模拟旋转结束，6秒后触发中奖提示
+}
+</script>
+</html>
