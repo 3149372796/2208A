@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+</body>
+<script >
+let number=18
+let person={
+    name:'张三',
+    sex:'男'
+}
+Object.defineProperty(person,'age',{
+    get(){
+        console.log('有人读取age属性');
+        return number
+    },
+    set(value){
+        console.log('有人修改了get属性',value);
+        number=value
+    }
+})
+</script>
+</html>
